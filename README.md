@@ -22,7 +22,8 @@ SELECT DISTINCT ?work ?title ?incipitPAE ?incipit where {
             bsbM:incipit ?incipit .
       BIND(?incipit as ?incipitPAE) .
 }
-limit 50```
+limit 50
+```
 4. Ensure that "Table" is selected as the results format. Within a second of the results loading, you should see the PAE in the "incipit" column replaced with an equivalent Verovio rendering.
 
 More on Verovio and PAE: https://www.verovio.org/pae-examples.xhtml
