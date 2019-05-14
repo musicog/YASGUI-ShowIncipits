@@ -16,11 +16,10 @@ Quick and dirty user script (a.k.a. Greasemonkey script) to turn PAE incipits re
 2. Specify https://data.rism.info/sparql (or any endpoint that has PAE incipits) as the SPARQL endpoint at the top
 3. Write a SPARQL query that selects PAE strings into a variable called `?incipit`. Example query:
 ```
-PREFIX dcterm: <http://purl.org/dc/terms/>
 PREFIX bsbM: <http://bsb-muenchen.de/ont/bsbMusicOntology#>
+
 SELECT DISTINCT ?work ?title ?pae ?incipit WHERE {
-      ?work dcterm:title ?title ;
-            bsbM:incipit ?incipit .
+      ?work bsbM:incipit ?incipit .
       BIND(?incipit as ?pae) .
 }
 LIMIT 50
