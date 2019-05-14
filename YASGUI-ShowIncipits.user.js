@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name YASGUI-Verovio
 // @description  Render incipits and score images in YASGUI
+// @author David M. Weigl
+// @source https://github.com/musicog/YASGUI-ShowIncipits
 // @version  1
 // @run-at document-idle
 // @include  https://yasgui.org/*
