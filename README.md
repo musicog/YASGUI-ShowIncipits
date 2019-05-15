@@ -16,12 +16,17 @@ Quick and dirty user script (a.k.a. Greasemonkey script) to turn PAE incipits re
 3. Write a SPARQL query that selects PAE strings into a variable called `?incipit`. Example query:
 ```
 PREFIX bsbM: <http://bsb-muenchen.de/ont/bsbMusicOntology#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT DISTINCT ?work ?pae ?incipit WHERE {
-      ?work bsbM:incipit ?incipit .
-      BIND(?incipit as ?pae) .
-}
-LIMIT 50
+SELECT DISTINCT ?work ?title ?name ?pae ?incipit 
+WHERE {  
+  ?work bsbM:incipit ?pae ;
+        dcterms:creator ?creator ;
+        dcterms:title ?title.
+  ?creator foaf:name ?name .
+  BIND(?pae as ?incipit) .
+} 
 ```
 4. Ensure that "Table" is selected as the results format. Within a couple of seconds of the results loading, you should see the PAE in the "incipit" column replaced with an equivalent Verovio rendering. You can specify another query returning incipits and have them rendered to Verovio again, without reloading the page.
 
