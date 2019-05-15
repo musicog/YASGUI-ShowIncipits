@@ -18,7 +18,7 @@ Quick and dirty user script (a.k.a. Greasemonkey script) to turn PAE incipits re
 ```
 PREFIX bsbM: <http://bsb-muenchen.de/ont/bsbMusicOntology#>
 
-SELECT DISTINCT ?work ?title ?pae ?incipit WHERE {
+SELECT DISTINCT ?work ?pae ?incipit WHERE {
       ?work bsbM:incipit ?incipit .
       BIND(?incipit as ?pae) .
 }
