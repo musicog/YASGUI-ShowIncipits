@@ -70,7 +70,24 @@ function appendMEIButton(incipitCell, meiData, index) {
   button.appendChild(buttonTextNode);
   button.setAttribute("id", "mei-button-" + index);
 
+  // add event handler to show MEI data
+  button.addEventListener("click", () => {
+    showMEI(incipitCell, meiData, index)
+  });
 
   // append button to cell
   incipitCell.appendChild(button);
+}
+
+function showMEI(incipitCell, meiData, index) {
+  // create a textarea to output MEI data
+  const textarea = document.createElement("TEXTAREA");
+  const meiTextNode = document.createTextNode(meiData);
+  textarea.appendChild(meiTextNode);
+  textarea.setAttribute("id", "mei-textarea-" + index);
+  textarea.setAttribute("rows", "12");
+  textarea.setAttribute("cols", "90");
+
+  // append textarea to cell
+  incipitCell.appendChild(textarea);
 }
