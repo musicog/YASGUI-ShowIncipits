@@ -27,6 +27,7 @@ WHERE {
   ?creator foaf:name ?name .
   BIND(?pae as ?incipit) .
 } 
+LIMIT 50
 ```
 4. Ensure that "Table" is selected as the results format. Within a couple of seconds of the results loading, you should see the PAE in the "incipit" column replaced with an equivalent Verovio rendering. You can specify another query returning incipits and have them rendered to Verovio again, without reloading the page.
 
