@@ -55,9 +55,22 @@ function tick() {
 
         // extract the MEI data from Verovio Toolkit and append it to the row
         const meiData = vrvToolkit.getMEI();
+        appendMEIButton(incipitCell, meiData, index);
       })
     }
   } 
   // repeat every second (so that we can catch the results of a new query)
   setTimeout( () => { tick() }, 1000);
+}
+
+function appendMEIButton(incipitCell, meiData, index) {
+  // create a button to ask for MEI output
+  const button = document.createElement("BUTTON");
+  const buttonTextNode = document.createTextNode("Show MEI");
+  button.appendChild(buttonTextNode);
+  button.setAttribute("id", "mei-button-" + index);
+
+
+  // append button to cell
+  incipitCell.appendChild(button);
 }
