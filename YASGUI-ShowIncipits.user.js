@@ -52,6 +52,9 @@ function tick() {
           row.children.item(incipitColumnIndex+1).innerText + "\n", 
           vrvOptions
         );
+
+        // extract the MEI data from Verovio Toolkit and append it to the row
+        const meiData = vrvToolkit.getMEI();
       })
     }
   } 
