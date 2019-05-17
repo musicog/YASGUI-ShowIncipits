@@ -17,7 +17,8 @@ const vrvOptions = {
   spacingStaff: 0,
   border: 20,
   adjustPageHeight: 1,
-  scale: 45
+  scale: 45,
+  xmlIdSeed:1
 };
 var vrvToolkit = new verovio.toolkit();
 tick();
