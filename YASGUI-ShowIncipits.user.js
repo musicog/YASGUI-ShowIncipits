@@ -53,9 +53,42 @@ function tick() {
           row.children.item(incipitColumnIndex+1).innerText + "\n", 
           vrvOptions
         );
+
+        // extract the MEI data from Verovio Toolkit and append it to the row
+        const meiData = vrvToolkit.getMEI();
+        appendMEIButton(incipitCell, meiData, index);
       })
     }
   } 
   // repeat every second (so that we can catch the results of a new query)
   setTimeout( () => { tick() }, 1000);
+}
+
+function appendMEIButton(incipitCell, meiData, index) {
+  // create a button to ask for MEI output
+  const button = document.createElement("BUTTON");
+  const buttonTextNode = document.createTextNode("Show MEI");
+  button.appendChild(buttonTextNode);
+  button.setAttribute("id", "mei-button-" + index);
+
+  // add event handler to show MEI data
+  button.addEventListener("click", () => {
+    showMEI(incipitCell, meiData, index)
+  });
+
+  // append button to cell
+  incipitCell.appendChild(button);
+}
+
+function showMEI(incipitCell, meiData, index) {
+  // create a textarea to output MEI data
+  const textarea = document.createElement("TEXTAREA");
+  const meiTextNode = document.createTextNode(meiData);
+  textarea.appendChild(meiTextNode);
+  textarea.setAttribute("id", "mei-textarea-" + index);
+  textarea.setAttribute("rows", "12");
+  textarea.setAttribute("cols", "90");
+
+  // append textarea to cell
+  incipitCell.appendChild(textarea);
 }
