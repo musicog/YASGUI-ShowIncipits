@@ -41,15 +41,15 @@ More on Verovio and PAE: https://www.verovio.org/pae-examples.xhtml
    ```
    PREFIX mso: <http://linkeddata.uni-muenster.de/ontology/musicscore#>
    PREFIX mo: <http://purl.org/ontology/mo/>
-   PREFIX dcterms: <http://purl.org/dc/terms/>
+   PREFIX dc: <http://purl.org/dc/elements/1.1/>
    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
    
    SELECT DISTINCT ?name ?score ?title ?musicxml ?incipit
    WHERE {   	
        ?score a mo:Score ;
               mso:asMusicXML ?musicxml ; 
-              dcterms:creator ?creator ;
-              dcterms:title ?title .
+              dc:creator ?creator ;
+              dc:title ?title .
        ?creator foaf:name ?name .
        BIND(?musicxml AS ?incipit)
    } LIMIT 1
